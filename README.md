@@ -1,2 +1,3 @@
 # UK-Payment-Practices-Analysis
-I'll be using SQL to analyze businesses in the UK payment practices in order to find any valuable information or suggestions for buyer groups that suppliers might utilize for future transactions.
+I'll be using SQL to analyze businesses in the UK payment practices in order to find any valuable information or suggestions for buyer groups that suppliers might utilize for future transactions.According to research by payment processing, the UK's small and medium-sized businesses are reportedly owed £26 billion in past-due payments. In order to stop these morally repugnant practices, the UK Government has decided to make all the information public so that buyers (SMEs) will be held responsible going forward.
+Here's the link to the dataset https://lnkd.in/dJzasS8k
