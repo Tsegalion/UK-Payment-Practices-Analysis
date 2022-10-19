@@ -149,13 +149,13 @@ SELECT
 	 YEAR(filing_date) AS Year,
 	 Company_number,
 	 Company,
-     CASE 
-		 WHEN(Payments_made_in_the_reporting_period = 'True' AND Invoices_not_paid_within_agreed_terms = 0 AND Participates_in_payment_codes = 'Yes') THEN 5
-		 WHEN(Payments_made_in_the_reporting_period = 'True' AND Invoices_not_paid_within_agreed_terms = 0 AND Participates_in_payment_codes = 'No') THEN 4 -- Businesses that pays all invoices according to agreement
-		 WHEN(Payments_made_in_the_reporting_period = 'True' AND Invoices_not_paid_within_agreed_terms BETWEEN 1 AND 5 AND Participates_in_payment_codes = 'Yes') THEN 3
-		 WHEN(Payments_made_in_the_reporting_period = 'True' AND Invoices_not_paid_within_agreed_terms BETWEEN 1 AND 5 AND Participates_in_payment_codes = 'No') THEN 2 -- Businesses that pays 95% within agreed terms
-		 WHEN(Payments_made_in_the_reporting_period = 'False' AND Invoices_not_paid_within_agreed_terms BETWEEN 0 AND 100) THEN 0 -- Businesses that are defaults from previous reporting period
-		 WHEN(Payments_made_in_the_reporting_period = 'True' AND Invoices_not_paid_within_agreed_terms >5 AND Participates_in_payment_codes = 'Yes' OR Participates_in_payment_codes = 'NO') THEN 0 -- Businesses that owes 6% to 100% of payment
-		 END AS Points
+         CASE 
+	        WHEN(Payments_made_in_the_reporting_period = 'True' AND Invoices_not_paid_within_agreed_terms = 0 AND Participates_in_payment_codes = 'Yes') THEN 5
+		WHEN(Payments_made_in_the_reporting_period = 'True' AND Invoices_not_paid_within_agreed_terms = 0 AND Participates_in_payment_codes = 'No') THEN 4 -- Businesses that pays all invoices according to agreement
+		WHEN(Payments_made_in_the_reporting_period = 'True' AND Invoices_not_paid_within_agreed_terms BETWEEN 1 AND 5 AND Participates_in_payment_codes = 'Yes') THEN 3
+		WHEN(Payments_made_in_the_reporting_period = 'True' AND Invoices_not_paid_within_agreed_terms BETWEEN 1 AND 5 AND Participates_in_payment_codes = 'No') THEN 2 -- Businesses that pays 95% within agreed terms
+		WHEN(Payments_made_in_the_reporting_period = 'False' AND Invoices_not_paid_within_agreed_terms BETWEEN 0 AND 100) THEN 0 -- Businesses that are defaults from previous reporting period
+		WHEN(Payments_made_in_the_reporting_period = 'True' AND Invoices_not_paid_within_agreed_terms >5 AND Participates_in_payment_codes = 'Yes' OR Participates_in_payment_codes = 'NO') THEN 0 -- Businesses that owes 6% to 100% of payment
+		END AS Points
 FROM payment_practices
 WHERE Start_date >= '2017-01-01' -- 'NULL' values are businesses that did not enter into any qualifying contracts in the reporting period.
